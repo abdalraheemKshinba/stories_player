@@ -64,6 +64,8 @@ jobs:
         with:
           channel: stable
           cache: true
+      # pana checks the pubspec screenshots with the libwebp tools.
+      - run: sudo apt-get update && sudo apt-get install -y webp
       - run: dart pub global activate pana
       - name: pana (core must keep 160/160)
         working-directory: packages/stories_player
