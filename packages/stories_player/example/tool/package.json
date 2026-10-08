@@ -1,0 +1,13 @@
+{
+  "name": "stories-player-example-tools",
+  "private": true,
+  "type": "module",
+  "description": "Screenshot and end-to-end sound checks for the stories_player example web build.",
+  "scripts": {
+    "screenshots": "node screenshots.mjs ../../doc/screenshots/raw",
+    "audio": "node audio_e2e.mjs"
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.0.0"
+  }
+}

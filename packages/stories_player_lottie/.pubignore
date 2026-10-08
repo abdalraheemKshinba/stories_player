@@ -1,0 +1,8 @@
+# pub uses this file instead of .gitignore for this package.
+.dart_tool/
+build/
+pubspec.lock
+pubspec_overrides.yaml
+*.iml
+.idea/
+.DS_Store

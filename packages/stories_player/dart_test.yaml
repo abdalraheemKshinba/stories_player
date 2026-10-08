@@ -1,0 +1,3 @@
+tags:
+  golden:
+    description: Pixel comparisons; run on macOS, where the goldens were made.

@@ -1,0 +1,23 @@
+name: stories_player_audio
+description: >-
+  Music tracks for stories_player image and Lottie items, played through
+  audioplayers from the story media cache.
+version: 0.1.0
+repository: https://github.com/abdalraheemKshinba/stories_player/tree/main/packages/stories_player_audio
+issue_tracker: https://github.com/abdalraheemKshinba/stories_player/issues
+topics: [stories, story-viewer, audio, music]
+
+environment:
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
+
+dependencies:
+  audioplayers: ^6.5.0
+  flutter:
+    sdk: flutter
+  stories_player: ^0.1.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

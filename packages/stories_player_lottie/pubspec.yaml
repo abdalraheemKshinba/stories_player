@@ -1,0 +1,25 @@
+name: stories_player_lottie
+description: >-
+  Lottie animation items for stories_player: the animation follows the story's
+  own clock, so it never drifts from the progress bar.
+version: 0.1.0
+repository: https://github.com/abdalraheemKshinba/stories_player/tree/main/packages/stories_player_lottie
+issue_tracker: https://github.com/abdalraheemKshinba/stories_player/issues
+topics: [stories, story-viewer, lottie, animation]
+
+environment:
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+  lottie: ^3.3.0
+  stories_player: ^0.1.0
+
+dev_dependencies:
+  archive: ^4.0.0
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

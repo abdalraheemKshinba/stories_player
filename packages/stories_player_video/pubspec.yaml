@@ -1,0 +1,24 @@
+name: stories_player_video
+description: >-
+  Video items for stories_player: plays cached or streamed MP4 through
+  video_player, with progress that follows the video and freezes on buffering.
+version: 0.1.0
+repository: https://github.com/abdalraheemKshinba/stories_player/tree/main/packages/stories_player_video
+issue_tracker: https://github.com/abdalraheemKshinba/stories_player/issues
+topics: [stories, story-viewer, video]
+
+environment:
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  stories_player: ^0.1.0
+  video_player: ^2.10.0
+
+dev_dependencies:
+  video_player_platform_interface: ^6.9.0
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

@@ -1,0 +1,34 @@
+name: stories_player_example
+description: Every feature of stories_player in one app.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  stories_player:
+    path: ../
+  stories_player_audio:
+    path: ../../stories_player_audio
+  stories_player_lottie:
+    path: ../../stories_player_lottie
+  stories_player_video:
+    path: ../../stories_player_video
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/avatars/
+    - assets/lottie/
+    - assets/audio/
+    - assets/videos/

@@ -1,0 +1,11 @@
+.dart_tool/
+build/
+pubspec.lock
+*.iml
+.idea/
+.DS_Store
+node_modules/
+.flutter-plugins
+.flutter-plugins-dependencies
+ephemeral/
+Pods/

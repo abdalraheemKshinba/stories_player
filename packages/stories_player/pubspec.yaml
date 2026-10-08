@@ -1,0 +1,39 @@
+name: stories_player
+description: >-
+  A fast, RTL-ready stories player for Flutter: segmented progress, tap, hold
+  and swipe gestures, prefetch, and a byte-bounded media cache.
+version: 0.1.0
+repository: https://github.com/abdalraheemKshinba/stories_player/tree/main/packages/stories_player
+issue_tracker: https://github.com/abdalraheemKshinba/stories_player/issues
+topics: [stories, story-viewer, instagram, rtl, video]
+
+environment:
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  clock: ^1.1.1
+  meta: ^1.16.0
+  path_provider: ^2.1.5
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+  leak_tracker_flutter_testing: ^3.0.9
+
+screenshots:
+  - description: Tap through stories, cube swipe to the next group, hold to pause.
+    path: doc/screenshots/demo.gif
+  - description: An image story with music, segmented progress and a caption.
+    path: doc/screenshots/image_music.webp
+  - description: Right-to-left Arabic with mirrored progress and tap zones.
+    path: doc/screenshots/rtl_arabic.webp
+  - description: A Lottie animation story driven by the story clock.
+    path: doc/screenshots/lottie_music.webp
+  - description: A custom theme with a call-to-action footer.
+    path: doc/screenshots/custom_theme_cta.webp
+  - description: The cube transition between groups.
+    path: doc/screenshots/cube_swipe.webp

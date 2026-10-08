@@ -1,0 +1,13 @@
+# pub uses this file instead of .gitignore for this package.
+.dart_tool/
+build/
+pubspec.lock
+pubspec_overrides.yaml
+*.iml
+.idea/
+.DS_Store
+# The example's media and tooling live in the repository, not the package.
+example/assets/
+example/tool/
+example/build/
+example/pubspec_overrides.yaml
