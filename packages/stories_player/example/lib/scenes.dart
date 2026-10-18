@@ -7,7 +7,7 @@ import 'main.dart';
 /// A single feature, opened straight from the URL, for screenshots:
 ///
 /// `?scene=player&group=market&rtl=1&theme=1&zones=1&transition=cube&freeze=2200`
-/// `?scene=cube` · `?scene=error`
+/// `?scene=home&tray=cards` · `?scene=cube` · `?scene=error`
 class Scene {
   const Scene({
     required this.name,
@@ -40,6 +40,9 @@ class Scene {
         arabic: flag('rtl'),
         customTheme: flag('theme'),
         tapZones: flag('zones'),
+        trayLayout: q['tray'] == 'cards'
+            ? StoriesTrayLayout.cards
+            : StoriesTrayLayout.circles,
       ),
     );
   }
@@ -65,7 +68,7 @@ class SceneView extends StatelessWidget {
       'player' => Stack(
         fit: StackFit.expand,
         children: [
-          const HomePage(),
+          HomePage(initialSettings: scene.settings),
           DemoPlayer(
             groups: demoGroups(copy),
             groupId: scene.group,
@@ -83,7 +86,7 @@ class SceneView extends StatelessWidget {
         seen: <String>{},
       ),
       'cube' => _CubePreview(groups: demoGroups(copy)),
-      _ => const HomePage(),
+      _ => HomePage(initialSettings: scene.settings),
     };
   }
 }

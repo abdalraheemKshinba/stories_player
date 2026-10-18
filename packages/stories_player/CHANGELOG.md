@@ -1,3 +1,18 @@
+## 0.1.1
+
+* `StoriesTray`: shows story groups above your content, as circles (the
+  Instagram look) or as Facebook-style cards with `StoriesTrayLayout.cards`.
+  Cards are 112 × 200 dp with a snapshot of the story, a 36 dp avatar ring in
+  the top corner and the name at the bottom. Both layouts mirror in
+  right-to-left languages.
+* `StoryCard` and `StoryCircle`, to build your own tray, and
+  `StoriesTrayStyle` for sizes and colours.
+* `StoryGroup.cover`: the snapshot a card shows. Without it, a card shows the
+  poster or image of the first story not yet seen, where the player opens
+  (`StoryCard.coverOf`).
+* Rings turn grey once all of a group's stories were seen, using the same
+  `isSeen` callback as the player.
+
 ## 0.1.0
 
 First public release.

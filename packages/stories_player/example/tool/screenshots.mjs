@@ -12,6 +12,7 @@ const W = 412, H = 892;
 
 const scenes = [
   { name: '01_home', url: '?scene=home', wait: 3000 },
+  { name: '20_tray_cards', url: '?scene=home&tray=cards', wait: 3000 },
   { name: '02_image_music', url: '?scene=player&group=market&freeze=2600', wait: 4500 },
   { name: '03_rtl_arabic', url: '?scene=player&group=market&item=market-raspberries&rtl=1&freeze=2400', wait: 4500 },
   { name: '04_custom_theme_cta', url: '?scene=player&group=coffee&theme=1&freeze=2200', wait: 4500 },

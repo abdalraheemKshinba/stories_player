@@ -1,6 +1,7 @@
 /// A fast, RTL-ready stories player for Flutter.
 ///
-/// Start with [StoriesPlayer] and [StoryGroup]. Add video and Lottie with
+/// Start with [StoriesPlayer] and [StoryGroup], and show groups with
+/// [StoriesTray] as circles or cards. Add video and Lottie with
 /// `package:stories_player_video` and `package:stories_player_lottie`, and
 /// music with `package:stories_player_audio`.
 library;
@@ -82,6 +83,13 @@ export 'src/widgets/stories_player.dart'
         StoryEventCallback,
         StoryItemCallback,
         StoryItemChangedCallback;
+export 'src/widgets/stories_tray.dart'
+    show
+        StoriesTray,
+        StoriesTrayLayout,
+        StoriesTrayStyle,
+        StoryCard,
+        StoryCircle;
 export 'src/widgets/story_group_transition.dart' show StoryGroupTransition;
 export 'src/widgets/story_intents.dart'
     show

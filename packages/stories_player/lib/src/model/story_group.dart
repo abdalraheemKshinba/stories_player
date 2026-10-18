@@ -4,7 +4,7 @@ import 'story_item.dart';
 import 'story_media.dart';
 
 /// The stories of one source, played one after another: a person, a shop,
-/// a campaign. Groups are what a stories tray shows as circles.
+/// a campaign. Groups are what a `StoriesTray` shows, as circles or cards.
 ///
 /// {@tool snippet}
 /// ```dart
@@ -28,6 +28,7 @@ final class StoryGroup {
     this.label,
     this.subtitle,
     this.avatar,
+    this.cover,
     this.semanticLabel,
     this.expiresAt,
   }) : assert(items.isNotEmpty, 'StoryGroup "$id" has no items.'),
@@ -51,6 +52,11 @@ final class StoryGroup {
 
   /// The image shown in the default header.
   final StoryMedia? avatar;
+
+  /// The snapshot a `StoryCard` shows, such as a thumbnail your server
+  /// made. When null, the card shows the poster or image of the first story
+  /// not yet seen.
+  final StoryMedia? cover;
 
   /// Read by screen readers instead of [label].
   final String? semanticLabel;

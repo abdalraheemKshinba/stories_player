@@ -8,7 +8,6 @@ import 'package:stories_player_video/stories_player_video.dart';
 
 import 'demo_data.dart';
 import 'scenes.dart';
-import 'stories_tray.dart';
 
 void main() => runApp(const StoriesDemoApp());
 
@@ -39,27 +38,40 @@ class DemoSettings {
     this.transition = StoryGroupTransition.slide,
     this.customTheme = false,
     this.tapZones = false,
+    this.trayLayout = StoriesTrayLayout.circles,
   });
 
   final bool arabic;
   final StoryGroupTransition transition;
   final bool customTheme;
   final bool tapZones;
+  final StoriesTrayLayout trayLayout;
 
   DemoSettings copyWith({
     bool? arabic,
     StoryGroupTransition? transition,
     bool? customTheme,
     bool? tapZones,
+    StoriesTrayLayout? trayLayout,
   }) => DemoSettings(
     arabic: arabic ?? this.arabic,
     transition: transition ?? this.transition,
     customTheme: customTheme ?? this.customTheme,
     tapZones: tapZones ?? this.tapZones,
+    trayLayout: trayLayout ?? this.trayLayout,
   );
 
   DemoCopy get copy => arabic ? DemoCopy.arabic : DemoCopy.english;
 }
+
+/// The tray in the example's brand colors.
+const demoTrayStyle = StoriesTrayStyle(
+  ringColors: [Color(0xFFFF6B2C), Color(0xFFEE4266), Color(0xFFFFC23C)],
+  seenRingColor: Color(0xFFD9D4D0),
+  ringGapColor: Color(0xFFFAF7F5),
+  placeholderColor: Color(0xFFEDE7E3),
+  labelStyle: TextStyle(fontSize: 12.5, color: Colors.black87),
+);
 
 /// The custom theme of the "Custom theme" setting.
 const customStoriesTheme = StoriesThemeData(
@@ -84,14 +96,16 @@ const customStoriesTheme = StoriesThemeData(
 );
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, this.initialSettings = const DemoSettings()});
+
+  final DemoSettings initialSettings;
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  DemoSettings _settings = const DemoSettings();
+  late DemoSettings _settings = widget.initialSettings;
   final Set<String> _seen = {};
   final List<String> _log = [];
 
@@ -172,15 +186,41 @@ class _HomePageState extends State<HomePage> {
               ),
               StoriesTray(
                 groups: groups,
-                isSeen: (group) =>
-                    group.items.every((item) => _seen.contains(item.id)),
+                layout: _settings.trayLayout,
+                isSeen: (group, item) => _seen.contains(item.id),
                 onTap: (group) => _open(groups, group.id),
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: 16,
+                  vertical: 4,
+                ),
+                style: demoTrayStyle,
               ),
               const SizedBox(height: 12),
               _Section(
                 title: 'Player settings',
                 child: Column(
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: SegmentedButton<StoriesTrayLayout>(
+                        segments: const [
+                          ButtonSegment(
+                            value: StoriesTrayLayout.circles,
+                            label: Text('Circles'),
+                            icon: Icon(Icons.circle_outlined),
+                          ),
+                          ButtonSegment(
+                            value: StoriesTrayLayout.cards,
+                            label: Text('Cards'),
+                            icon: Icon(Icons.crop_portrait_rounded),
+                          ),
+                        ],
+                        selected: {_settings.trayLayout},
+                        onSelectionChanged: (value) => _update(
+                          _settings.copyWith(trayLayout: value.first),
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: SegmentedButton<StoryGroupTransition>(

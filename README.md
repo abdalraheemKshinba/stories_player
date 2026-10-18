@@ -28,7 +28,7 @@ clip for the full-quality video.
 ## Every kind of story
 
 <table>
-<tr><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/home.webp" width="190" alt="Story tray"><br><b>Story tray</b><br><sub>Your own tray; the player opens from any group</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/image_music.webp" width="190" alt="Image + music"><br><b>Image + music</b><br><sub>Segmented progress, caption, music that stops with its story</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/video.webp" width="190" alt="Video"><br><b>Video</b><br><sub>Progress follows the video, so it waits while buffering</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/bakery_video.webp" width="190" alt="Silent video"><br><b>Silent video</b><br><sub>No sound button when there is nothing to hear</sub></td></tr>
+<tr><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/tray_cards.webp" width="190" alt="Story tray as cards"><br><b>Story tray</b><br><sub>Facebook-style cards or Instagram-style circles, built in</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/image_music.webp" width="190" alt="Image + music"><br><b>Image + music</b><br><sub>Segmented progress, caption, music that stops with its story</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/video.webp" width="190" alt="Video"><br><b>Video</b><br><sub>Progress follows the video, so it waits while buffering</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/bakery_video.webp" width="190" alt="Silent video"><br><b>Silent video</b><br><sub>No sound button when there is nothing to hear</sub></td></tr>
 <tr><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/lottie_music.webp" width="190" alt="Lottie + music"><br><b>Lottie + music</b><br><sub>Parsed off the UI thread and cached</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/lottie_loop.webp" width="190" alt="Looping Lottie"><br><b>Looping Lottie</b><br><sub>Loops on the story clock</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/widget_story.webp" width="190" alt="Any widget"><br><b>Any widget</b><br><sub>Build the story yourself; it still gets progress and gestures</sub></td><td align="center" width="25%"><img src="packages/stories_player/doc/screenshots/text_story.webp" width="190" alt="Text story"><br><b>Text story</b><br><sub>A plain widget story with a gradient</sub></td></tr>
 </table>
 
@@ -74,6 +74,17 @@ final groups = [
 Navigator.of(context).push(
   MaterialPageRoute<void>(builder: (_) => StoriesPlayer(groups: groups)),
 );
+```
+
+Show the groups above your content with `StoriesTray`, as circles or as
+Facebook-style cards:
+
+```dart
+StoriesTray(
+  groups: groups,
+  layout: StoriesTrayLayout.cards,
+  onTap: (group) => openPlayer(group.id),
+)
 ```
 
 That is a complete player: progress bar, header, caption, gestures, caching

@@ -55,7 +55,7 @@ media. It fixes what users keep reporting:
 <td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/error_retry.webp" width="200"><br><b>Error and retry</b></td>
 </tr>
 <tr>
-<td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/home.webp" width="200"><br><b>Story tray</b></td>
+<td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/tray_cards.webp" width="200"><br><b>Story cards tray</b></td>
 <td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/lottie_loop.webp" width="200"><br><b>Looping Lottie</b></td>
 <td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/bakery_video.webp" width="200"><br><b>Silent video</b></td>
 <td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/text_story.webp" width="200"><br><b>Text story</b></td>
@@ -106,6 +106,40 @@ Navigator.of(context).push(
 
 That is a complete player: progress bar, header, caption, gestures, caching
 and prefetching included.
+
+## Story tray: circles or cards
+
+`StoriesTray` shows your groups above your content, as **circles** (the
+Instagram look) or **cards** (the Facebook look: a snapshot of the story with
+the avatar in the corner). Pass the same `isSeen` you give the player: rings
+turn grey once a group was watched, and each card shows the story the player
+will open on.
+
+<table>
+<tr>
+<td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/home.webp" width="200"><br><b>Circles</b></td>
+<td align="center"><img src="https://raw.githubusercontent.com/abdalraheemKshinba/stories_player/main/packages/stories_player/doc/screenshots/tray_cards.webp" width="200"><br><b>Cards</b></td>
+</tr>
+</table>
+
+```dart
+StoriesTray(
+  groups: groups,
+  layout: StoriesTrayLayout.cards, // or .circles, the default
+  isSeen: (group, item) => seen.contains(item.id),
+  onTap: (group) => openPlayer(group.id),
+)
+```
+
+| | Circles | Cards |
+|---|---|---|
+| Size | 64 dp avatar, name underneath | 112 × 200 dp, 12 dp corners |
+| Avatar | Ring around the avatar | 36 dp, in the top corner |
+| Snapshot | None | `StoryGroup.cover`, or the poster or image of the first unseen story |
+
+Change sizes and colours with `StoriesTrayStyle`, add an "Add story" button
+with `leading`, or build your own row from `StoryCircle` and `StoryCard`.
+Everything mirrors in right-to-left languages.
 
 ## A real setup
 
@@ -202,6 +236,8 @@ app's data-saver setting.
   `StoryHeader`, `StoryCaption`, `StoryProgressBar`.
 * **Behaviour:** `StoriesPlaybackConfig` (durations, seen rule, end of group,
   muted start) and `StoriesGestureConfig` (tap zones, hold, swipes, keyboard).
+* **Tray:** `StoriesTray` with `StoriesTrayLayout.circles` or `cards`, and
+  `StoriesTrayStyle` for sizes and colours.
 * **Transitions:** `StoryGroupTransition.slide` (default), `cube`, `fade` or
   `none`, or your own.
 
