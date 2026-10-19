@@ -21,12 +21,13 @@ Recorded from the [example](https://github.com/abdalraheemKshinba/stories_player
 
 > **Live demo:** coming soon.
 
-## Why another stories package
+## What it focuses on
 
-Most stories packages get the look right and the hard parts wrong. This one
-was built from an audit of every Flutter stories package and their issue
-trackers, Telegram's open-source client, and how Instagram and Facebook load
-media. It fixes what users keep reporting:
+Stories look simple, but the details decide how they feel: progress that
+matches the media, pauses that resume correctly, and layouts that work in
+every language. stories_player is designed around those details, informed by
+how large apps such as Instagram, Facebook and Telegram load and play
+stories:
 
 | | stories_player |
 |---|---|
