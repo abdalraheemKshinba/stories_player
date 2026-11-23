@@ -1,3 +1,11 @@
+## NEXT
+
+* The `package:flutter/material.dart` import is deprecated from Flutter 3.47
+  in favour of `package:material_ui`. The import stays, with the deprecation
+  silenced, so the package keeps working from Flutter 3.44 and pub.dev's
+  static analysis passes again. The move to `material_ui` comes with the
+  next minor release, which will raise the minimum Flutter to 3.47.
+
 ## 0.1.1
 
 * `StoriesTray`: shows story groups above your content, as circles (the

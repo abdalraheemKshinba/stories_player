@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:clock/clock.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
+// Material lives in package:material_ui from Flutter 3.47; the import
+// stays so Flutter 3.44 to 3.46 keep working until the next minor release.
+// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/semantics.dart';

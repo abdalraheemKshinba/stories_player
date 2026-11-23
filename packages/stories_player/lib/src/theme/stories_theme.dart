@@ -1,6 +1,9 @@
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/foundation.dart';
+// Material lives in package:material_ui from Flutter 3.47; the import
+// stays so Flutter 3.44 to 3.46 keep working until the next minor release.
+// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 
 /// Colours, sizes and text styles of a [StoriesPlayer].
