@@ -1,3 +1,6 @@
+// Material lives in package:material_ui from Flutter 3.47; the import
+// stays so Flutter 3.44 to 3.46 keep working until the next minor release.
+// ignore: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:stories_player/stories_player.dart';
 import 'package:stories_player_lottie/stories_player_lottie.dart';
